@@ -1,12 +1,12 @@
->?TUIKit 5.0.8 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
+>?TUIKit 5.0.10 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
 
 在您导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的 pods 方式导入 TUIKit ，默认就会导入 TUIKit_live 直播 UI 组件。
 
 TUIKit_live 直播UI组件集成后的直播效果：
 
-|              直播观众页               |              主播准备页               |              主播开播页               |
+|              直播广场页               |              主播准备页               |              主播开播页               |
 | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
-| <img src="https://main.qcloudimg.com/raw/0fc6805db789719d00f00991163fa221.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/7981702bce71b8a8bb95ba4525a9b1e0.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/9ea7d501a30138378acd0b4dcb804f72.jpg" width="300" height="600"> |
+| <img src="https://main.qcloudimg.com/raw/cad568b62a39ee5608e080363364db72.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/7981702bce71b8a8bb95ba4525a9b1e0.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/9ea7d501a30138378acd0b4dcb804f72.jpg" width="300" height="600"> |
 
 
 
@@ -59,7 +59,10 @@ anchorVC.delegate =  self ;
 /// 初始化观众页，设置与主播端一致的 roomId，即可观看该主播的直播。
 /// useCDN 可以先设置成 NO，如果您有CDN播放的需求，可以参照后面章节
 /// anchorId 该直播间的主播userId，建议设置，选填
-TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewController alloc] initWithRoomId:123456 anchorId:nil useCdn:NO cdnUrl:@""];
+TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewController alloc] initWithRoomId:123456 
+												 anchorId:nil 
+												   useCdn:NO 
+												   cdnUrl:@""];
 
 /// 根据项目的情况，push/present 展示观众页viewController
 [self.navigationController pushViewController:anchorVC animated: YES];
@@ -100,7 +103,7 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
    在直播大厅页点击任意直播间，参照 [步骤4：观众端观看直播](#step4) 生成观看端即可观看。
 
 <span id="step6"></span>
-## 步骤6：使用 CDN 节省成本
+## 步骤6：使用直播 CDN 观看
 
 创建观众端 TUILiveRoomAudienceViewController 时，如果设置 useCdn 为 NO，则默认使用 TRTC 进行观看；如果设置 useCdn 为 YES，且设置了 cdnUrl，则会采用 CDN 进行观看。
 
